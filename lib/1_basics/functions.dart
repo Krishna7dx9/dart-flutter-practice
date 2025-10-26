@@ -55,6 +55,20 @@ void callFunction(void Function() func) {
   func;
 }
 
+//=============================
+// CallBack Order Function Calling
+//=============================
+
+void processTask(String taskName, void Function() callback) {
+  debugPrint("Task Started: $taskName");
+  callback();
+  debugPrint("Task Completed: $taskName");
+}
+
+Function performCalculation (int a,int b, Function () callback);
+
+
+
 void main() {
   // Calling sayHello function
   sayHello();
@@ -123,4 +137,15 @@ void main() {
   //=============================
 
   callFunction(sayHelo);
+
+  //=============================
+  // CallBack Order Function Defining
+  //=============================
+
+  void afterTask() {
+    debugPrint("Task Completed");
+  }
+
+  // Passing the callback function
+  processTask("Download", afterTask);
 }
