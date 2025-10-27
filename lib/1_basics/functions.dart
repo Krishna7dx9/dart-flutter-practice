@@ -65,10 +65,6 @@ void processTask(String taskName, void Function() callback) {
   debugPrint("Task Completed: $taskName");
 }
 
-Function performCalculation (int a,int b, Function () callback);
-
-
-
 void main() {
   // Calling sayHello function
   sayHello();
@@ -100,19 +96,19 @@ void main() {
   //=============================
 
   // Assigning anonymous function to a variable
-  var anonymous = () {
+  void Function() anonymous = () {
     debugPrint("Hello from anonymous function");
   };
 
   // Calling that function
   anonymous();
 
-  // Using Anonymous function directly to in forEach
+  // Using Anonymous function directly to in for-each
 
   List<String> fruits = ["Mango", "Banana", "Apple"];
-  for (var fruit in fruits) {
+  fruits.forEach((fruit){
     debugPrint("Fruits:$fruit");
-  }
+  });
 
   //=============================
   // Arrow Syntax Function Calling
