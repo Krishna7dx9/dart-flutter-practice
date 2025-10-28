@@ -56,13 +56,33 @@ void callFunction(void Function() func) {
 }
 
 //=============================
-// CallBack Order Function Calling
+// CallBack Function Calling
 //=============================
 
 void processTask(String taskName, void Function() callback) {
   debugPrint("Task Started: $taskName");
   callback();
   debugPrint("Task Completed: $taskName");
+}
+
+// Practice Homework
+void doHomework(void Function() callMe){
+  debugPrint("HomeWork Started......");
+  callMe();
+}
+
+void homeworkDone(){
+  debugPrint("Homework Done");
+}
+
+// Practice Program that Simulates Downloading a file.
+void startDownload(void Function() func){
+  debugPrint("Download Started....");
+  func();
+}
+
+void downloadCompleted(){
+  debugPrint("Download Completed");
 }
 
 void main() {
@@ -144,4 +164,20 @@ void main() {
 
   // Passing the callback function
   processTask("Download", afterTask);
+
+  //Practice callback
+  doHomework(homeworkDone);
+
+  doHomework((){
+    debugPrint("Home Work Done Via Anonymous Callback");
+  });
+
+ // Practice Program that Simulates Downloading a file.
+  startDownload(downloadCompleted);
+
+  //=============================
+  // Recursive Function Defining
+  //=============================
+
+
 }
