@@ -66,24 +66,47 @@ void processTask(String taskName, void Function() callback) {
 }
 
 // Practice Homework
-void doHomework(void Function() callMe){
+void doHomework(void Function() callMe) {
   debugPrint("HomeWork Started......");
   callMe();
 }
 
-void homeworkDone(){
+void homeworkDone() {
   debugPrint("Homework Done");
 }
 
 // Practice Program that Simulates Downloading a file.
-void startDownload(void Function() func){
+void startDownload(void Function() func) {
   debugPrint("Download Started....");
   func();
 }
 
-void downloadCompleted(){
+void downloadCompleted() {
   debugPrint("Download Completed");
 }
+
+//=============================
+// Recursive Function Defining
+//=============================
+
+// Example 1 - Find factorial of a number n
+int factorial(int n) {
+  if (n == 0) return 1;
+  return n * factorial(n - 1);
+}
+
+// Task 1 : Write a recursive function countdown(int n) that prints numbers from n to 1, then prints "Done!".
+void countdown(int n) {
+  if (n == 0){
+    debugPrint("Done!");
+    return ;
+  }
+  debugPrint("$n");
+  countdown(n-1);
+}
+
+// Task 2 : Write a recursive function to calculate sum of first n numbers.
+
 
 void main() {
   // Calling sayHello function
@@ -126,7 +149,7 @@ void main() {
   // Using Anonymous function directly to in for-each
 
   List<String> fruits = ["Mango", "Banana", "Apple"];
-  fruits.forEach((fruit){
+  fruits.forEach((fruit) {
     debugPrint("Fruits:$fruit");
   });
 
@@ -168,16 +191,26 @@ void main() {
   //Practice callback
   doHomework(homeworkDone);
 
-  doHomework((){
+  doHomework(() {
     debugPrint("Home Work Done Via Anonymous Callback");
   });
 
- // Practice Program that Simulates Downloading a file.
+  // Practice Program that Simulates Downloading a file.
   startDownload(downloadCompleted);
 
   //=============================
-  // Recursive Function Defining
+  // Recursive Function Calling
   //=============================
 
+  // Example 1
+  int n = 5;
+  debugPrint("The Factorial of $n : ${factorial(5)}");
+
+  // Task 1
+  n = 3;
+  debugPrint("Countdown:");
+  countdown(3);
+
+  // Task 2
 
 }
