@@ -52,7 +52,7 @@ void arrow(String name) => debugPrint("Hello, $name");
 //=============================
 
 void callFunction(void Function() func) {
-  func;
+  func();
 }
 
 //=============================
@@ -95,18 +95,62 @@ int factorial(int n) {
   return n * factorial(n - 1);
 }
 
-// Task 1 : Write a recursive function countdown(int n) that prints numbers from n to 1, then prints "Done!".
+// Task 1 : Write a recursive function count down(int n) that prints numbers from n to 1, then prints "Done!".
 void countdown(int n) {
-  if (n == 0){
+  if (n == 0) {
     debugPrint("Done!");
-    return ;
+    return;
   }
   debugPrint("$n");
-  countdown(n-1);
+  countdown(n - 1);
 }
 
 // Task 2 : Write a recursive function to calculate sum of first n numbers.
+int sumOfNumbers(int n) {
+  if (n == 0) return 0;
+  return n + sumOfNumbers(n - 1);
+}
 
+// Task 3 Write a recursive function fibonacci(n) that returns the nth Fibonacci number.
+int fibonacci(int n) {
+  if (n == 0) {
+    return 0;
+  } else if (n == 1) {
+    return 1;
+  } else {
+    return fibonacci(n - 1) + fibonacci(n - 2);
+  }
+}
+
+// Test 1 : Write a recursive function reverseString(String str) that returns the reversed string.
+String reverseString(String str) {
+  if (str.isEmpty || str.length == 1) return str;
+  return reverseString(str.substring(1)) + str[0];
+}
+
+// Test 2 : Write a recursive function gcd(int a, int b) that returns the greatest common divisor of two numbers.
+int gcd(int a, int b) {
+  if (b == 0) return a;
+  return gcd(b, a % b);
+}
+
+// Test 3: Write a recursive function power(int base, int exponent) that returns base raised to the power of exponent.
+int power(int base, int exponent) {
+  if (exponent == 0) return 0;
+  return exponent ^ base;
+}
+
+// Test 4: Write a recursive function isPalindrome(String str) that checks if the given string is a palindrome (same forwards and backwards).
+String isPalindrome(String str) {
+  if (str.isEmpty || str.length == 1) {
+    return "Not Valid String for Palindrome Checking";
+  } else if (isPalindrome(str.substring(1) + str[0]) == str){
+  return "Yes Palindrome";
+  }
+  else {
+    return "Not Palindrome";
+  }
+  }
 
 void main() {
   // Calling sayHello function
@@ -212,5 +256,26 @@ void main() {
   countdown(3);
 
   // Task 2
+  n = 3;
+  debugPrint("The sum of $n Numbers is : ${sumOfNumbers(n)}");
 
+  // Task 3
+  debugPrint("Fibonacci of $n is : $fibonacci(n)");
+
+  // Test 1
+  String str = "Kris Sharma";
+  debugPrint("The reverse of $str is : $reverseString(str)");
+
+  // Test 2
+  int a = 4;
+  int b = 4;
+  debugPrint("The Greatest Common Divisor of $a and $b is : ${gcd(a, b)}");
+
+  // Test 3
+  int base = 4;
+  int exponent = 3;
+  debugPrint("Now Let's use our power function ${power(base, exponent)}");
+
+  // Test 4
+  debugPrint("$str is : ${isPalindrome(str)}");
 }
