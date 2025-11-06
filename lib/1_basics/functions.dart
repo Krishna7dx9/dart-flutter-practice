@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'dart:core';
 
 // Say Hello function
 void sayHello() {
@@ -136,21 +137,68 @@ int gcd(int a, int b) {
 
 // Test 3: Write a recursive function power(int base, int exponent) that returns base raised to the power of exponent.
 int power(int base, int exponent) {
-  if (exponent == 0) return 0;
-  return exponent ^ base;
+  if (exponent == 0) return 1;
+  return base * power(base, exponent - 1);
 }
 
 // Test 4: Write a recursive function isPalindrome(String str) that checks if the given string is a palindrome (same forwards and backwards).
-String isPalindrome(String str) {
-  if (str.isEmpty || str.length == 1) {
-    return "Not Valid String for Palindrome Checking";
-  } else if (isPalindrome(str.substring(1) + str[0]) == str){
-  return "Yes Palindrome";
+bool isPalindrome(String str) {
+  if (str.length <= 1) return true;
+
+  if (str[0] != str[str.length - 1]) return false;
+
+  return isPalindrome(str.substring(1, str.length - 1));
+}
+
+// Test 5 : Write a recursive function that counts how many digits are in a number.
+
+/*   Problem Solving : Think,Write,Code,Review
+
+type : Int
+Input : 12345
+Output: 5
+
+Base Case (When to Stop) : If num.length == 1 , return 1
+Non-Base Case (Recursion: Returning same function and also calculating how many digits in a Number :
+return numOfDigits(num)
+*/
+
+/*  Result :
+
+Input : 2543
+Expected : Same as Output
+Output : 2543
+254
+25
+2
+
+Input : 0
+Expected : Same as Output
+Output :0
+
+Input : 9
+Expected : Same as Output
+Output : 9
+
+Input : 123
+Expected : Same as Output
+Output : 123
+12
+1
+
+*/
+
+Object numberOfDigits(String num) {
+  // Base Case
+  if (num.length == 1 || num == "") {
+    return num;
   }
+  // Non-Base Case
   else {
-    return "Not Palindrome";
+    debugPrint(num);
+    return numberOfDigits(num.substring(0, num.length - 1));
   }
-  }
+}
 
 void main() {
   // Calling sayHello function
@@ -278,4 +326,9 @@ void main() {
 
   // Test 4
   debugPrint("$str is : ${isPalindrome(str)}");
+
+  // Test 5
+  String num = "254";
+
+  print(numberOfDigits(num));
 }
