@@ -104,9 +104,9 @@ void main() {
   debugPrint(nameAge);
 
   final birthYear = 2005;
-  const pai = 5.32;
+  const pi = 5.32;
   debugPrint(birthYear.toString());
-  debugPrint(pai.toString());
+  debugPrint(pi.toString());
 
   late String favouriteCity;
   favouriteCity = "Vrindavan";
@@ -121,21 +121,64 @@ void main() {
   testObj = 47;
   debugPrint(testObj.toString());
 
-  List<String> myFavouriteFruits = ["Mango", "Banana", "Grapes"];
-  debugPrint(myFavouriteFruits.toString());
-  myFavouriteFruits.add("StrawBerry");
-  debugPrint(myFavouriteFruits.toString());
+  //=============================
+  // Array / List
+  //=============================
+
+  // Declaring a List
+  List<int> number = [9,10,1,2,3,4,5,6,7,8,9];
+
+// Accessing elements
+  debugPrint("Index 0 : Number : ${number[0]}");
+
+// Traversal
+  for (int i =0;i<number.length;i++){
+    debugPrint("Index $i : Number : ${number[i]}");
+  }
+
+// Adding Elements
+  number.add(1000);
+  // debugPrint(number);
+
+  // numbers.insert(0, 9);
+  debugPrint("$number");
+
+// Removing elements
+  numbers.remove(9);
+  debugPrint("$number");
+  number.remove(9);
+  debugPrint("$number");
+
+  number.removeAt(5);
+  debugPrint("$number");
+
+// Other useful methods
+  debugPrint("$numbers.length");
+  debugPrint("$numbers.contains(5)");
+  // numbers.sort();
+  debugPrint("$numbers");
+  // numbers.reversed;
+  debugPrint("$numbers");
+
+
+  // Set
 
   Set<String> myFavouritesColours = {"Red", "Blue", "Black"};
   debugPrint(myFavouritesColours.toString());
   myFavouritesColours.add("Blue");
   debugPrint(myFavouritesColours.toString());
 
+  // Map
+
   Map<String, dynamic> library = {"Roll no": 117, "Roll no of him": 63};
   debugPrint(library.toString());
 
+  // Runes
+
   Runes heart = Runes('U+FE0F');
   debugPrint(heart.toString());
+
+  // Symbol
 
   Symbol flutter = #Flutter;
   debugPrint(flutter.toString());
