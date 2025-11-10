@@ -201,8 +201,8 @@ Object numberOfDigits(String num) {
 }
 
 /*
-Test 6 : Write a recursive function that returns a new list containing only the even numbers from the given list and also returns
-the count (length) of even numbers.
+Test 6 : Write a recursive function that returns a new list containing only the
+even numbers from the given list and also return the count (length) of even numbers.
 */
 
 /*  Problem Solving : Think,Write,Code Review
@@ -211,7 +211,7 @@ Input : [2,5,6,9,12,3]
 Output : Even Numbers List from Input : [2,6,12]
          Length : 3
 Type : Int
-Declare : Input, number, ListtOfEvenNumbers, Function checkEvenNumber, n
+Declare : Input, number, ListOfEvenNumbers, Function checkEvenNumber, n
 
 Without Recursion Solution : for each number in input, if number % 2 == 0,
 (first create List) add number to listOfEvenNumbers, then print lisOfEvenNumbers.length
@@ -229,8 +229,8 @@ List<int> listOfEvenNumbers = [];
 
 dynamic checkEvenNumber(List<int> input) {
   if (n >= input.length) {
-    print("Index : $n");
-    print("Length: ${listOfEvenNumbers.length}");
+    debugPrint("Index : $n");
+    debugPrint("Length: ${listOfEvenNumbers.length}");
     return listOfEvenNumbers;
   } else if (input[n] % 2 == 0) {
     listOfEvenNumbers.add(input[n]);
@@ -372,10 +372,10 @@ void main() {
 
   // Test 5
   String num = "254";
-  print(numberOfDigits(num));
+  debugPrint("${numberOfDigits(num)}");
 
   // Test 6
 
   List<int> input = [2, 5, 6, 9, 3, 46, 2, 6, 4, 9, 8];
-  print("List of Even Numbers : ${checkEvenNumber(input)}");
+  debugPrint("List of Even Numbers : ${checkEvenNumber(input)}");
 }

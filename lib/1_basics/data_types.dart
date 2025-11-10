@@ -7,6 +7,22 @@ enum Weather { rainy, cloudy, sunny }
 //enum Colours
 enum Colours { red, blue, purple }
 
+int i = 0;
+int sum = 0;
+
+sumOfList(List<int> numbers1) {
+  if (i == numbers1.length) {
+    debugPrint("The Sum is : $sum");
+    return sum;
+  } else if (i < numbers1.length) {
+    sum = sum + numbers1[i];
+    debugPrint("Index : $i, Value : ${numbers1[i]}");
+    i++;
+
+    return sumOfList(numbers1);
+  }
+}
+
 void main() {
   //=============================
   // 1. Primitive / Single-value types
@@ -126,24 +142,24 @@ void main() {
   //=============================
 
   // Declaring a List
-  List<int> number = [9,10,1,2,3,4,5,6,7,8,9];
+  List<int> number = [9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-// Accessing elements
+  // Accessing elements
   debugPrint("Index 0 : Number : ${number[0]}");
 
-// Traversal
-  for (int i =0;i<number.length;i++){
+  // Traversal
+  for (int i = 0; i < number.length; i++) {
     debugPrint("Index $i : Number : ${number[i]}");
   }
 
-// Adding Elements
+  // Adding Elements
   number.add(1000);
   // debugPrint(number);
 
   // numbers.insert(0, 9);
   debugPrint("$number");
 
-// Removing elements
+  // Removing elements
   numbers.remove(9);
   debugPrint("$number");
   number.remove(9);
@@ -152,7 +168,7 @@ void main() {
   number.removeAt(5);
   debugPrint("$number");
 
-// Other useful methods
+  // Other useful methods
   debugPrint("$numbers.length");
   debugPrint("$numbers.contains(5)");
   // numbers.sort();
@@ -160,6 +176,41 @@ void main() {
   // numbers.reversed;
   debugPrint("$numbers");
 
+  // Test 1 : Write a Dart program to find the sum of all elements in a list.
+
+  /* Problem Solving : Think,Write,Code,Review
+
+  input : [2,4,6,8]
+  output : 20
+
+  I will Iterate over all elements by their index which will be a variable i using for loop
+
+  */
+
+  List<int> numbers1 = [1, 2, 3, 4, 5];
+
+  int sum = 0;
+
+  for (int i = 0; i < numbers1.length; i++) {
+    debugPrint("Index $i : Number : ${numbers1[i]}");
+    sum = sum + numbers1[i];
+  }
+  debugPrint("Sum : $sum");
+
+  /* Problem Solving : Think,Write,Code,Review
+
+  We can Solve this problem using recursion.The base case occurs when we've reached
+  the end of the list - at that point, we stop and return 0.
+  In the recursive step we take the first element and add it to the sum of other
+  elements, which is obtained by calling the same function on the smaller portion
+  of the list. This way, the problem reduces in each call until it hits the base
+  case.
+
+  Base Case : end of list
+  recursive case : sum + numbers1[i]
+  */
+
+  sumOfList(numbers1);
 
   // Set
 
