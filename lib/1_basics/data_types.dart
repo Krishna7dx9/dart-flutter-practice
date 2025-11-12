@@ -225,8 +225,8 @@ void main() {
   Input : List = [2,1,3,2,5,8]
   Output : 8
 
-  Iterate throught a list (or recurse)
-  Kepp track of largest seen so far
+  Iterate through a list (or recurse)
+  Keep track of largest seen so far
   compare each element against it
   return or print it at the end
 
@@ -234,25 +234,25 @@ void main() {
 
   List<int> numbers2 = [2,6,5,8];
 
-// if(numbers2.isEmpty){
-//   return;
-// }
-// else{
-//   int largest = numbers2[0];
+if(numbers2.isEmpty){
+  return;
+}
+else{
+  int largest = numbers2[0];
 
-//   for(int i = 1; i < numbers2.length; i++){
-//     if(numbers2[i] > largest){
-//       largest = numbers2[i];
-//   }
-// }
-// print(largest);
-// }
+  for(int i = 1; i < numbers2.length; i++){
+    if(numbers2[i] > largest){
+      largest = numbers2[i];
+  }
+}
+debugPrint("$largest");
+}
 
-/* Solving this by recursive approch
+/* Solving this by recursive approach
 
 Base case 1 : if List Empty Return null
 Base case 2 : if only 1 element then largest is this
-Recursive case : recusively looks for largest element from the list and print the largest
+Recursive case : recursively looks for largest element from the list and print the largest
 
 Tracing Recursive calls
 
@@ -286,7 +286,6 @@ compares 5 with previous result which was 8
 In this comparison 8 is larger
 return 8
 
-
 */
 
   int? maxOfList (List<int> numbers2){
@@ -298,10 +297,8 @@ return 8
     return (maxRest != null && maxRest > first) ? maxRest : first;
   }
 
-  print(maxOfList(numbers2));
+  debugPrint("${maxOfList(numbers2)}");
   maxOfList(numbers2);
-
-
 
   // Set
 
