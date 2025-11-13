@@ -176,7 +176,7 @@ void main() {
   // numbers.reversed;
   debugPrint("$numbers");
 
-  // Test 1 : Write a Dart program to find the sum of all elements in a list.
+  // Problem 1 : Write a Dart program to find the sum of all elements in a list.
 
   /* Problem Solving : Think,Write,Code,Review
 
@@ -214,9 +214,7 @@ void main() {
   // Recursive Function calling
   sumOfList(numbers1);
 
-  // Test 2 : Find and print the maximum element from a given list.
-
-  // Test 2 : Find and print the maximum element from a given list.
+  // Problem 2 : Find and print the maximum element from a given list.
 
   /*  Problem Solving : Think, Write, Code, Review
 
@@ -299,6 +297,47 @@ return 8
 
   debugPrint("${maxOfList(numbers2)}");
   maxOfList(numbers2);
+
+  // Problem 3 : Manually reverse a list using logic (loops or recursion).
+
+  /*   Problem Solving - Think, Write, Code, Review
+
+  Input : [1,2,3,4,5,6]
+  Output : [6,5,4,3,2,1]
+
+  In Lists if we wanna access any element then we require it's index
+  As List Contains n number of indexes, so the last index would be n-1
+  then n-2
+  then n-3
+  .
+  .
+  .
+  1
+  So here when we reach the 0th index we can stop getting the list and in parallel of it
+  for every index from end to start we will append the element from input list to new
+  list by using .add(), this will create a reversed List (manually)
+
+  */
+
+  List<int> numbers3 = [1,2,3,4,5,6];
+  List<int> numbers3Reversed = [];
+
+  for(int i = numbers3.length-1; i >= 0 ; i--){
+    numbers3Reversed.add(numbers3[i]);
+  }
+
+  debugPrint("$numbers3");
+  debugPrint("$numbers3Reversed");
+
+  /* Using Recursion --- Problem Solving - Think,Write, Code, Review
+
+  Base Case : Stop When we reaches the starting of List Which was index 0 Always
+              return result of reversed list
+  Recursive Case : Accessing Input List from end to start by index and Appending in
+                   New List.
+                  return same Function by -1 index of Input List
+
+  */
 
   // Set
 

@@ -219,7 +219,7 @@ Without Recursion Solution : for each number in input, if number % 2 == 0,
 With Recursion Solution:
 
 Base Case (When to Stop) : if (input[n] % 2 != 0) print listOfEvenNumbers, print length
-Non-Base Case (Calling a function to make recursion of adding the number to listOfEvenNumbers if {for number in Input % 2 ==0} and increament n
+Non-Base Case (Calling a function to make recursion of adding the number to listOfEvenNumbers if {for number in Input % 2 ==0} and increment n
 
  */
 
