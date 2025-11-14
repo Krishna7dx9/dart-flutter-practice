@@ -320,14 +320,56 @@ return 8
   */
 
   List<int> numbers3 = [1,2,3,4,5,6];
-  List<int> numbers3Reversed = [];
+  debugPrint("$numbers3");
 
-  for(int i = numbers3.length-1; i >= 0 ; i--){
-    numbers3Reversed.add(numbers3[i]);
+  // List<int> numbers3Reversed = [];
+
+  // for(int i = numbers3.length-1; i >= 0 ; i--){
+  //   numbers3Reversed.add(numbers3[i]);
+  // }
+
+  // debugPrint("$numbers3");
+  // debugPrint("$numbers3Reversed");
+
+  /*   Optimization
+
+  Currently -
+  time : O(n)
+  space : O(n)
+
+  Time stays O(n) because the algorithm touches It touches n/2
+  Space could be optimised to O(1) by using
+  swap of elements in the same list instead of new List for storing reversed List
+  because of this there is no secondary list required, no extra space so space
+  complexity would be O(1)
+
+  Use 2 pointers (start, end), and 1 variable (temp)
+  start -> begins at 0
+  end -> begins at list.length-1
+  Move inward
+  start++
+  end--
+
+  we will swap on iteration while start < end
+  first we will assign start value to temp, to avoid overwriting it
+  then, end value to start
+  then, temp value to end
+
+  */
+
+  int start = 0;
+  int end = numbers3.length - 1;
+  int temp;
+
+  while(start<end){
+    temp = numbers3[start];
+    numbers3[start] = numbers3[end];
+    numbers3[end] = temp;
+    start++;
+    end--;
   }
 
   debugPrint("$numbers3");
-  debugPrint("$numbers3Reversed");
 
   /* Using Recursion --- Problem Solving - Think,Write, Code, Review
 
@@ -338,6 +380,8 @@ return 8
                   return same Function by -1 index of Input List
 
   */
+
+
 
   // Set
 
